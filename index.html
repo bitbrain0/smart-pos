@@ -63,34 +63,8 @@
                 </div>
                 <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/30 transition text-sm">Masuk</button>
             </form>
-            <div class="mt-4 text-center flex flex-col items-center gap-2">
+            <div class="mt-4 text-center">
                 <span class="text-xs text-slate-400">Default: admin / 123456</span>
-                <button type="button" onclick="openApiConfigModal()" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center gap-1">
-                    <span>⚙️</span> Atur URL API Google Apps Script
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: API URL Configuration (Untuk GitHub Pages) -->
-    <div id="apiConfigModal" class="hidden fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 w-full max-w-md rounded-2xl shadow-2xl p-6 border border-slate-200 dark:border-slate-700">
-            <div class="flex justify-between items-center mb-3">
-                <h3 class="font-bold text-lg text-slate-800 dark:text-white">⚙️ Koneksi Backend GAS</h3>
-                <button onclick="closeApiConfigModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
-            </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3 leading-relaxed">
-                Tempelkan URL Web App dari Google Apps Script Anda (berakhiran <code>/exec</code>). Pastikan akses deploy disetel ke <b>"Siapa saja / Anyone"</b>.
-            </p>
-            <div class="space-y-3">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Web App URL (/exec)</label>
-                    <input type="url" id="gasApiUrlInput" placeholder="https://script.google.com/macros/s/xxx/exec" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white text-xs font-mono">
-                </div>
-                <div class="flex gap-2 pt-2">
-                    <button type="button" onclick="closeApiConfigModal()" class="flex-1 py-2.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold">Batal</button>
-                    <button type="button" onclick="saveApiConfig()" class="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md">Simpan URL</button>
-                </div>
             </div>
         </div>
     </div>
@@ -137,11 +111,6 @@
                 <!-- Dark Mode Toggle Button -->
                 <button onclick="toggleTheme()" title="Ubah Tema Gelap/Terang" class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl transition flex items-center justify-center">
                     <span id="themeIcon">🌙</span>
-                </button>
-
-                <!-- API Config Button -->
-                <button onclick="openApiConfigModal()" title="Pengaturan URL API" class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl transition flex items-center justify-center">
-                    <span>⚙️</span>
                 </button>
 
                 <div class="hidden sm:block h-6 w-px bg-slate-200 dark:bg-slate-700 mx-0.5"></div>
@@ -571,7 +540,7 @@
     <!-- Application Core Script Logic -->
     <script>
         // Konfigurasi URL API Google Apps Script (Ganti atau atur via tombol ⚙️ di aplikasi)
-        const DEFAULT_GAS_API_URL = '';
+        const DEFAULT_GAS_API_URL = 'https://script.google.com/macros/s/AKfycbzvbEoXZmGPv-aF-aUoQyvHDJ4aqMJmtRVGzR35xqTzX6EjxpiIssswFVqcP5G2wPJkKQ/exec';
 
         function getGasApiUrl() {
             return (localStorage.getItem('pos_gas_api_url') || DEFAULT_GAS_API_URL || '').trim();
